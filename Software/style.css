@@ -1,0 +1,144 @@
+:root {
+  --green: #00ffcc;
+  --status-color: #ffba00;
+}
+
+body.connected { --status-color: #00ffa3; }
+body.error     { --status-color: #ff4d4d; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Consolas, monospace;
+  background: #000;
+  color: var(--green);
+  overflow: hidden;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #002a26;
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--green);
+  box-shadow: inset 0 -2px 8px #004c40;
+  font-size: 13px;
+  z-index: 20;
+}
+
+.top-bar .logo {
+  font-weight: bold;
+  font-size: 16px;
+  color: #66ffc2;
+}
+
+.top-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.top-controls label {
+  color: #66ffc2;
+}
+
+.top-controls select,
+.top-controls button {
+  background: #002a26;
+  border: 1px solid var(--green);
+  color: var(--green);
+  padding: 4px 8px;
+  font-family: Consolas, monospace;
+  font-size: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.top-controls select:hover,
+.top-controls button:hover {
+  background: #004c40;
+}
+
+.fullscreen-grid {
+  display: flex;
+  flex-direction: row;
+  height: calc(100% - 42px);
+  width: 100%;
+}
+
+.graph-container {
+  flex: 1;
+  position: relative;
+  background: #000;
+  box-shadow: inset 0 0 30px #002a26;
+}
+
+#fftChart {
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+#map {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+}
+
+.status-box {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(0, 32, 28, 0.8);
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #004c40;
+  box-shadow: 0 0 8px #00ffcc33;
+  font-size: 13px;
+  color: var(--status-color);
+}
+
+.signal-info {
+  position: absolute;
+  bottom: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 32, 28, 0.95);
+  padding: 16px 24px;
+  font-size: 16px;
+  line-height: 1.6;
+  border-radius: 10px;
+  border: 1px solid #00ffcc;
+  color: var(--green);
+  box-shadow: 0 0 12px rgba(0, 255, 204, 0.15);
+  min-width: 240px;
+  max-width: 320px;
+  text-align: center;
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .fullscreen-grid {
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+canvas {
+  cursor: crosshair;
+}
+
+/*.signal-bottom {
+  position: static;
+  margin-top: 12px;
+  background: rgba(0, 32, 28, 0.9);
+  padding: 16px 20px;
+  font-size: 16px;
+  line-height: 1.6;
+  border-radius: 8px;
+  border: 1px solid #00ffcc;
+  color: var(--green);
+  box-shadow: 0 0 12px rgba(0, 255, 204, 0.15);
+}*/

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SDR Analyzer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+</head>
+<body>
+  <div class="top-bar">
+    <span class="logo">SDR Monitor</span>
+    <div class="top-controls">
+      <label for="intervalSel">Interval:</label>
+      <select id="intervalSel">
+        <option value="200" selected>0.2 s</option>
+        <option value="1000">1 s</option>
+        <option value="2000">2 s</option>
+        <option value="5000">5 s</option>
+      </select>
+      <button id="reconnectBtn">Reconnect</button>
+      <button id="exportBtn">Export CSV</button>
+    </div>
+  </div>
+
+  <div class="fullscreen-grid">
+    <div class="graph-container">
+      <canvas id="fftChart"></canvas>
+      <div id="signalInfo" class="signal-info"></div>
+      <div id="statusBox" class="status-box">Connecting...</div>
+    </div>
+    <div id="map"></div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
